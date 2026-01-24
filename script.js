@@ -21,16 +21,21 @@ function openNav(){
   navToggle.setAttribute('aria-label', 'Close menu');
 }
 
-navToggle?.addEventListener('click', () => {
+navToggle?.addEventListener('click', (e) => {
+  e.stopPropagation();
   const expanded = navToggle.getAttribute('aria-expanded') === 'true';
   expanded ? closeNav() : openNav();
 });
 
+// Close the mobile menu only when clicking outside (and only if it's open)
 document.addEventListener('click', (e) => {
+  const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+  if (!expanded) return;
   if (!nav.contains(e.target) && !navToggle.contains(e.target)) closeNav();
 });
 
-// Smooth scroll for in-page links
+// Smooth scroll for in-page links.
+// On mobile, close the menu after selecting a link.
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
     const id = a.getAttribute('href');
@@ -38,7 +43,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const target = document.querySelector(id);
     if (target){
       e.preventDefault();
-      closeNav();
+      const isMobileMenuOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      if (isMobileMenuOpen) closeNav();
+
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       history.replaceState(null, '', id);
     }
