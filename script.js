@@ -1,11 +1,12 @@
-// Aurelian Pools site JS (lightweight, no dependencies)
+// Aurelian Pools site JS (modal + mobile nav)
 
 const navToggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('#site-nav');
 const year = document.querySelector('#year');
-const contactForm = document.querySelector('#contactForm');
-const quoteForm = document.querySelector('#quoteForm');
-const formStatus = document.querySelector('#formStatus');
+
+const modal = document.querySelector('#requestModal');
+const requestKind = document.querySelector('#requestKind');
+const requestSelection = document.querySelector('#requestSelection');
 
 year.textContent = new Date().getFullYear();
 
@@ -27,15 +28,12 @@ navToggle?.addEventListener('click', (e) => {
   expanded ? closeNav() : openNav();
 });
 
-// Close the mobile menu only when clicking outside (and only if it's open)
 document.addEventListener('click', (e) => {
   const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-  if (!expanded) return;
-  if (!nav.contains(e.target) && !navToggle.contains(e.target)) closeNav();
+  if (expanded && !nav.contains(e.target) && !navToggle.contains(e.target)) closeNav();
 });
 
-// Smooth scroll for in-page links.
-// On mobile, close the menu after selecting a link.
+// Smooth scroll for in-page links; close nav if open.
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
     const id = a.getAttribute('href');
@@ -43,31 +41,57 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const target = document.querySelector(id);
     if (target){
       e.preventDefault();
-      const isMobileMenuOpen = navToggle.getAttribute('aria-expanded') === 'true';
-      if (isMobileMenuOpen) closeNav();
-
+      if (navToggle.getAttribute('aria-expanded') === 'true') closeNav();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       history.replaceState(null, '', id);
     }
   });
 });
 
-// Demo form handlers (replace with real submit to email/CRM)
-function handleFakeSubmit(form, statusEl){
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(form).entries());
+// Modal helpers
+function openModal(kind, selection){
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
 
-    if (statusEl){
-      statusEl.textContent = "Thanks — request received. (Template form: connect this to email/CRM before launch.)";
-    } else {
-      alert("Thanks — request received. (Template form: connect this to email/CRM before launch.)");
-    }
+  requestKind.value = (kind === 'specialty') ? 'Specialty' : 'Plan';
 
-    console.log("Form submission (template):", data);
-    form.reset();
-  });
+  // Preselect chosen option if it exists
+  const options = Array.from(requestSelection.options).map(o => o.textContent.trim());
+  if (options.includes(selection)){
+    requestSelection.value = selection;
+  } else {
+    requestSelection.value = (requestKind.value === 'Specialty') ? 'New Pool Startup' : 'Basic';
+  }
+
+  const firstInput = modal.querySelector('input, select, textarea');
+  firstInput?.focus();
 }
 
-handleFakeSubmit(contactForm, formStatus);
-handleFakeSubmit(quoteForm, null);
+function closeModal(){
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.open-modal').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const kind = btn.getAttribute('data-kind') || 'plan';
+    const selection = btn.getAttribute('data-selection') || 'Basic';
+    openModal(kind, selection);
+  });
+});
+
+modal.addEventListener('click', (e) => {
+  const shouldClose = e.target?.getAttribute?.('data-close') === 'true';
+  if (shouldClose) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false'){
+    closeModal();
+  }
+});
+
+// When switching kind, set sensible default selection
+requestKind.addEventListener('change', () => {
+  requestSelection.value = (requestKind.value === 'Specialty') ? 'New Pool Startup' : 'Basic';
+});

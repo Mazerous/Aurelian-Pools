@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aurelian Pools — The Gold Standard of Pool Care</title>
-  <meta name="description" content="Owner-operated premium weekly pool maintenance. Clear communication, consistent service, and a gold standard approach. Aurelian Pools, by Austin Molketin (CPO)." />
+  <meta name="description" content="Owner-operated weekly pool maintenance. Clear communication, on-the-way notifications, and email readings + photos after every visit." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -15,8 +15,10 @@
 
   <header class="site-header" id="top">
     <div class="container header-inner">
+      <!-- Logo removed from navbar per request; simple wordmark -->
       <a class="brand" href="#top" aria-label="Aurelian Pools home">
-        <img class="brand-logo" src="logo.png" alt="Aurelian Pools logo" />
+        <span class="brand-name">Aurelian Pools</span>
+        <span class="brand-tag">The Gold Standard of Pool Care</span>
       </a>
 
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
@@ -27,91 +29,52 @@
         <a href="#about">About</a>
         <a href="#plans">Plans</a>
         <a href="#free-month">Free Month</a>
-        <a href="#specialty">Specialty Services</a>
+        <a href="#specialty">Specialty</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn btn--ghost">Get a Quote</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-
+    <!-- HERO (solid background) -->
+    <section class="hero section section--hero">
       <div class="container hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow">Owner-operated • Weekly service • CPO certified</p>
+        <p class="eyebrow">Owner-operated • Weekly service • CPO certified</p>
+        <h1>Local pool care, run like a <span class="gold">gold standard</span> business.</h1>
 
-          <h1>Local pool care, run like a <span class="gold">gold standard</span> business.</h1>
+        <p class="lead">
+          Aurelian Pools is built for homeowners who want their pool consistently clean, chemically dialed in,
+          and professionally monitored—without being treated like a number.
+        </p>
 
-          <p class="lead">
-            Aurelian Pools is built for homeowners who want their pool consistently clean, chemically dialed in,
-            and professionally monitored—without being treated like a number.
-          </p>
+        <div class="hero-cta">
+          <a class="btn btn--primary" href="#plans">View Monthly Plans</a>
+          <a class="btn btn--secondary" href="#specialty">Specialty Services</a>
+        </div>
 
-          <div class="hero-cta">
-            <a class="btn btn--primary" href="#plans">View Monthly Plans</a>
-            <a class="btn btn--secondary" href="#contact">Request Service</a>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <span class="trust-big">On-the-way</span>
+            <span class="trust-small">notifications</span>
           </div>
-
-          <div class="hero-trust">
-            <div class="trust-item">
-              <span class="trust-big">Weekly</span>
-              <span class="trust-small">On-time visits</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-big">Clear</span>
-              <span class="trust-small">Communication</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-big">Email</span>
-              <span class="trust-small">Readings + photos</span>
-            </div>
+          <div class="trust-item">
+            <span class="trust-big">Every visit</span>
+            <span class="trust-small">readings + photos</span>
           </div>
-
-          <div class="hero-mini-note">
-            <strong>Every visit:</strong> chemical readings + photos emailed to you • on-the-way notifications • equipment oversight
+          <div class="trust-item">
+            <span class="trust-big">Clear</span>
+            <span class="trust-small">communication</span>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-card-top">
-            <h2 class="card-title">Quick Quote</h2>
-            <p class="card-sub">Tell us your pool type and we’ll respond fast.</p>
-          </div>
-
-          <form class="quote-form" id="quoteForm">
-            <label>
-              <span>Name</span>
-              <input name="name" type="text" autocomplete="name" required placeholder="Your name" />
-            </label>
-            <label>
-              <span>Phone or Email</span>
-              <input name="contact" type="text" required placeholder="(555) 555-5555 or email" />
-            </label>
-            <label>
-              <span>Pool Type</span>
-              <select name="poolType" required>
-                <option value="" selected disabled>Select one</option>
-                <option>Chlorine</option>
-                <option>Saltwater</option>
-                <option>Not sure</option>
-              </select>
-            </label>
-            <label>
-              <span>City</span>
-              <input name="city" type="text" required placeholder="Sarasota, Tampa, etc." />
-            </label>
-            <button class="btn btn--primary btn--full" type="submit">Request Quote</button>
-            <p class="form-note">Template form — connect to your email/CRM before launch.</p>
-          </form>
+        <div class="hero-mini-note">
+          <strong>Included with monthly service:</strong> on-the-way notifications • email chemical readings + pictures after every visit • equipment oversight
         </div>
       </div>
-
-      <div class="hero-fade" aria-hidden="true"></div>
     </section>
 
-    <section class="section" id="about">
+    <!-- ABOUT -->
+    <section class="section section--alt" id="about">
       <div class="container narrow">
         <p class="eyebrow">About Aurelian Pools</p>
         <h2>Built on discipline, pride, and customer-first service.</h2>
@@ -127,21 +90,21 @@
 
             <p>
               I started servicing pools <strong>part-time in 2023</strong>, and before going full-time I worked at
-              <strong>three different pool companies</strong>—a small/local route, a mid-size company, and a large corporate operation.
-              I got to see the industry at every level.
+              <strong>three different pool companies</strong>—a small/local company, a mid-size operation, and a large corporate route.
+              I saw the business at every level.
             </p>
           </div>
 
           <div>
             <p>
-              What I didn’t like was how often customers were treated: rushed visits, poor communication, and a focus on
-              squeezing profit instead of caring for the pool and the homeowner. I knew I could do it better.
+              The pattern I kept seeing was the same: customers were rushed, communication was poor, and the focus was on
+              making as much money as possible instead of caring for the pool and the homeowner. That never sat right with me.
             </p>
 
             <p>
               Today, I run Aurelian Pools full-time and I’m a <strong>Certified Pool Operator (CPO)</strong>.
-              This business is personal. When you hire Aurelian Pools, you’re getting an owner who shows up,
-              communicates clearly, and treats your home with respect. No corners cut. No excuses.
+              When you hire Aurelian Pools, you’re getting an owner who shows up, communicates clearly,
+              and treats your home with respect. No corners cut. No excuses.
             </p>
           </div>
         </div>
@@ -149,15 +112,14 @@
         <div class="pill-row">
           <span class="pill">Owner-operated</span>
           <span class="pill">CPO certified</span>
-          <span class="pill">On-the-way notifications</span>
-          <span class="pill">Email readings + photos</span>
-          <span class="pill">Equipment-first mindset</span>
+          <span class="pill">Communication-first</span>
+          <span class="pill">Readings + photos</span>
+          <span class="pill">Consistent weekly care</span>
         </div>
-
-        <a class="btn btn--secondary" href="#contact">Get Started</a>
       </div>
     </section>
 
+    <!-- PLANS -->
     <section class="section section--dark" id="plans">
       <div class="container">
         <div class="section-head">
@@ -170,8 +132,8 @@
 
         <div class="notice">
           <div class="notice-inner">
-            <strong>Included with all monthly plans:</strong>
-            on-the-way notifications • email chemical readings + pictures after every visit • consistent weekly schedule • equipment checks
+            <strong>Every weekly visit includes:</strong>
+            on-the-way notifications • email chemical readings + pictures • consistent schedule • equipment checks
           </div>
         </div>
 
@@ -192,7 +154,10 @@
               <li>Email readings + photo update after every visit</li>
             </ul>
 
-            <a class="btn btn--ghost btn--full" href="#contact">Choose Chems Only</a>
+            <button class="btn btn--ghost btn--full open-modal"
+              data-kind="plan" data-selection="Chems Only">
+              Select Chems Only
+            </button>
           </article>
 
           <article class="plan-card plan-card--featured" aria-label="Most popular plan">
@@ -213,13 +178,16 @@
               <li>Email readings + photo update after every visit</li>
             </ul>
 
-            <a class="btn btn--primary btn--full" href="#contact">Choose Basic</a>
+            <button class="btn btn--primary btn--full open-modal"
+              data-kind="plan" data-selection="Basic">
+              Select Basic
+            </button>
           </article>
 
           <article class="plan-card">
             <div class="plan-top">
               <h3>Gold Standard</h3>
-              <p class="price"><span class="amount">$150</span><span class="per">/mo</span></p>
+              <p class="price"><span class="amount">$160</span><span class="per">/mo</span></p>
               <p class="plan-sub">Premium clarity, detail work, and that resort-level finish.</p>
             </div>
 
@@ -232,7 +200,10 @@
               <li>Email readings + photo update after every visit</li>
             </ul>
 
-            <a class="btn btn--ghost btn--full" href="#contact">Choose Gold Standard</a>
+            <button class="btn btn--ghost btn--full open-modal"
+              data-kind="plan" data-selection="Gold Standard">
+              Select Gold Standard
+            </button>
           </article>
         </div>
 
@@ -248,15 +219,16 @@
 
         <div class="plan-note">
           <p class="muted">
-            <strong>Important:</strong> If a pool requires extra attention to consistently maintain cleanliness
-            (for example, needing a weekly vacuum or ongoing heavy debris), it will be placed on the
-            <strong>Gold Standard Plan</strong> to match the labor and care required.
+            <strong>Important:</strong> If a pool requires extra attention to maintain cleanliness (for example, needing a weekly vacuum
+            due to debris load or ongoing clarity issues), it will be placed on the <strong>Gold Standard Plan</strong>—
+            because extra attention and labor is required to keep the pool truly clean.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="free-month">
+    <!-- FREE MONTH -->
+    <section class="section section--alt2" id="free-month">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Earn a Free Month</p>
@@ -264,9 +236,8 @@
           <p class="muted">Three simple ways to earn a free month of monthly pool service.</p>
         </div>
 
-        <div class="cards-3 cards-3--wide">
-          <article class="info-card info-card--featured">
-            <div class="badge">Best Value</div>
+        <div class="cards-3">
+          <article class="info-card">
             <h3>1) Sign up for monthly service</h3>
             <p class="muted">
               Consistency is everything. Stay on a monthly plan and you’ll be eligible for loyalty promotions and
@@ -293,16 +264,16 @@
 
         <p class="muted small free-month-note">
           Note: Free month credits apply to monthly service plans and may require an active account in good standing.
-          Update exact terms later if you’d like.
         </p>
       </div>
     </section>
 
-    <section class="section section--dark" id="specialty">
+    <!-- SPECIALTY -->
+    <section class="section section--dark2" id="specialty">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Specialty Services</p>
-          <h2>When you need extra help—no fluff, just results.</h2>
+          <h2>Extra help when you need it—no distractions.</h2>
           <p class="muted">
             We specialize in keeping your pool clean and swim-ready. Specialty services are available for one-time needs.
           </p>
@@ -312,10 +283,13 @@
           <article class="specialty-card">
             <h3>New Pool Startup</h3>
             <p class="muted">
-              Daily visits after a new surface/plaster to protect the finish and stabilize water chemistry.
-              Includes testing, balancing, brushing guidance, and detailed reporting.
+              Proper chemistry and care for a new surface/startup period with detailed reporting and protection-focused balancing.
             </p>
-            <p class="price-line"><strong>Starting at:</strong> $55 per visit (packages available)</p>
+            <p class="price-line"><strong>Starting at:</strong> $299</p>
+            <button class="btn btn--ghost btn--full open-modal"
+              data-kind="specialty" data-selection="New Pool Startup">
+              Request New Pool Startup
+            </button>
           </article>
 
           <article class="specialty-card">
@@ -324,15 +298,22 @@
               A reset for pools that fell behind—debris removal, brushing, baskets, filter assessment, and chemistry correction.
             </p>
             <p class="price-line"><strong>Starting at:</strong> $199</p>
+            <button class="btn btn--ghost btn--full open-modal"
+              data-kind="specialty" data-selection="One-Time Clean">
+              Request One-Time Clean
+            </button>
           </article>
 
           <article class="specialty-card">
             <h3>Algae Treatment</h3>
             <p class="muted">
-              Targeted treatment plan based on your pool type and severity. Includes multiple visits as needed,
-              aggressive brushing, and filtration guidance for a full recovery.
+              Targeted treatment plan based on pool type and severity. Includes multiple visits as needed and recovery guidance.
             </p>
             <p class="price-line"><strong>Starting at:</strong> $249</p>
+            <button class="btn btn--ghost btn--full open-modal"
+              data-kind="specialty" data-selection="Algae Treatment">
+              Request Algae Treatment
+            </button>
           </article>
 
           <article class="specialty-card">
@@ -341,6 +322,10 @@
               Fast post-storm recovery—debris removal, chemistry reset, filtration stabilization, and clear reporting.
             </p>
             <p class="price-line"><strong>Starting at:</strong> $299</p>
+            <button class="btn btn--ghost btn--full open-modal"
+              data-kind="specialty" data-selection="Hurricane / Storm Cleanup">
+              Request Storm Cleanup
+            </button>
           </article>
         </div>
 
@@ -350,7 +335,8 @@
       </div>
     </section>
 
-    <section class="section" id="faq">
+    <!-- FAQ -->
+    <section class="section section--alt" id="faq">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">FAQ</p>
@@ -376,9 +362,9 @@
           <details>
             <summary>What services don’t we cover?</summary>
             <div class="faq-body">
-              We focus on keeping your pool clean and swim-ready—no distractions. We do not handle major equipment replacement
-              (pump replacements, heaters), plumbing, leak detection/repair, or pool construction/resurfacing. If you need those,
-              we’ll recommend a trusted specialist.
+              We focus on keeping your pool clean and swim-ready—no distractions. We do not handle major equipment repair/replacement
+              (pump replacement, heaters), plumbing, leak detection/repair, or pool construction/resurfacing.
+              If you need those, we’ll recommend a trusted specialist.
             </div>
           </details>
 
@@ -389,79 +375,6 @@
               optimized filtration, and extra detail cleaning to remove micro-particles that cause dull or hazy water.
             </div>
           </details>
-
-          <details>
-            <summary>How do I start service?</summary>
-            <div class="faq-body">
-              Send a request through the quote form below. We’ll confirm pool type, access, and a start date—then we get you on a consistent weekly schedule.
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--contact" id="contact">
-      <div class="container grid-2">
-        <div class="content">
-          <p class="eyebrow">Contact</p>
-          <h2>Ready for consistent weekly care?</h2>
-          <p class="lead">
-            Tell us a bit about your pool and we’ll reach out quickly with next steps.
-          </p>
-
-          <div class="contact-cards">
-            <div class="mini-card">
-              <h3>Service Area</h3>
-              <p class="muted">Sarasota • Tampa Bay • Surrounding areas</p>
-            </div>
-            <div class="mini-card">
-              <h3>Response Time</h3>
-              <p class="muted">Same day / next day (typical)</p>
-            </div>
-          </div>
-
-          <p class="muted small">
-            Replace placeholders with your phone/email + business hours before launch.
-          </p>
-        </div>
-
-        <div class="form-card">
-          <h3>Request Monthly Service</h3>
-          <form id="contactForm" class="contact-form">
-            <label>
-              <span>Name</span>
-              <input name="name" type="text" autocomplete="name" required placeholder="Your name" />
-            </label>
-
-            <label>
-              <span>Email</span>
-              <input name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
-            </label>
-
-            <label>
-              <span>Phone</span>
-              <input name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555" />
-            </label>
-
-            <label>
-              <span>Plan Interest</span>
-              <select name="plan" required>
-                <option value="" selected disabled>Select a plan</option>
-                <option>Chems Only</option>
-                <option>Basic</option>
-                <option>Gold Standard</option>
-                <option>Not sure</option>
-              </select>
-            </label>
-
-            <label>
-              <span>Message</span>
-              <textarea name="message" rows="4" placeholder="Pool size, salt/chlorine, any issues, preferred start date..."></textarea>
-            </label>
-
-            <button class="btn btn--primary btn--full" type="submit">Send Request</button>
-            <p class="form-note" id="formStatus" aria-live="polite"></p>
-          </form>
         </div>
       </div>
     </section>
@@ -477,7 +390,8 @@
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#plans">Plans</a>
-        <a href="#contact">Contact</a>
+        <a href="#specialty">Specialty</a>
+        <a href="#faq">FAQ</a>
         <a href="#top">Back to top</a>
       </div>
 
@@ -486,6 +400,82 @@
       </div>
     </div>
   </footer>
+
+  <!-- MODAL: Sign up / Request service -->
+  <div class="modal" id="requestModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-overlay" data-close="true"></div>
+    <div class="modal-card" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-close="true">×</button>
+      <h3 class="modal-title" id="modalTitle">Request Service</h3>
+      <p class="modal-sub">Fill this out and we’ll reach out fast. Your selection is pre-filled.</p>
+
+      <!-- Uses FormSubmit to email you (requires one-time confirmation on first submission) -->
+      <form class="modal-form" action="https://formsubmit.co/amolketin@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Aurelian Pools — Service Request" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+
+        <div class="field-grid">
+          <label>
+            <span>Name</span>
+            <input name="Name" type="text" autocomplete="name" required placeholder="Your name" />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input name="Email" type="email" autocomplete="email" required placeholder="you@email.com" />
+          </label>
+        </div>
+
+        <div class="field-grid">
+          <label>
+            <span>Phone</span>
+            <input name="Phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555" />
+          </label>
+
+          <label>
+            <span>City</span>
+            <input name="City" type="text" placeholder="Sarasota, Tampa, etc." />
+          </label>
+        </div>
+
+        <label>
+          <span>Request Type</span>
+          <select name="Request Type" id="requestKind" required>
+            <option value="Plan">Plan</option>
+            <option value="Specialty">Specialty</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Selected Service</span>
+          <select name="Selected Service" id="requestSelection" required>
+            <optgroup label="Plans">
+              <option>Chems Only</option>
+              <option>Basic</option>
+              <option>Gold Standard</option>
+            </optgroup>
+            <optgroup label="Specialty Services">
+              <option>New Pool Startup</option>
+              <option>One-Time Clean</option>
+              <option>Algae Treatment</option>
+              <option>Hurricane / Storm Cleanup</option>
+            </optgroup>
+          </select>
+        </label>
+
+        <label>
+          <span>Message</span>
+          <textarea name="Message" rows="4" placeholder="Pool type (salt/chlorine), address notes, gate code, issues, preferred start date..."></textarea>
+        </label>
+
+        <button class="btn btn--primary btn--full" type="submit">Send Request</button>
+        <p class="muted small modal-note">
+          This sends to your email via FormSubmit. On first use, you may need to confirm the email address.
+        </p>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
