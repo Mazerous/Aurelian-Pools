@@ -5,7 +5,6 @@ const nav = document.querySelector('#site-nav');
 const year = document.querySelector('#year');
 
 const modal = document.querySelector('#requestModal');
-const requestKind = document.querySelector('#requestKind');
 const requestSelection = document.querySelector('#requestSelection');
 
 year.textContent = new Date().getFullYear();
@@ -53,14 +52,12 @@ function openModal(kind, selection){
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 
-  requestKind.value = (kind === 'specialty') ? 'Specialty' : 'Plan';
-
-  // Preselect chosen option if it exists
+  // Preselect the chosen option if it exists; otherwise default based on what they clicked.
   const options = Array.from(requestSelection.options).map(o => o.textContent.trim());
   if (options.includes(selection)){
     requestSelection.value = selection;
   } else {
-    requestSelection.value = (requestKind.value === 'Specialty') ? 'New Pool Startup' : 'Basic';
+    requestSelection.value = (kind === 'specialty') ? 'New Pool Startup' : 'Basic';
   }
 
   const firstInput = modal.querySelector('input, select, textarea');
@@ -91,7 +88,3 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// When switching kind, set sensible default selection
-requestKind.addEventListener('change', () => {
-  requestSelection.value = (requestKind.value === 'Specialty') ? 'New Pool Startup' : 'Basic';
-});
