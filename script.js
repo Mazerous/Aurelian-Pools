@@ -37,6 +37,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
     const id = a.getAttribute('href');
     if (!id || id === '#') return;
+    // Back to top: scroll to true top for reliability
+    if (id === '#top'){
+      e.preventDefault();
+      if (navToggle.getAttribute('aria-expanded') === 'true') closeNav();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      history.replaceState(null, '', id);
+      return;
+    }
+
     const target = document.querySelector(id);
     if (target){
       e.preventDefault();
@@ -90,16 +99,42 @@ document.addEventListener('keydown', (e) => {
 
 
 
-
-// Hero slideshow
+// Top slideshow (auto + manual)
 (function(){
-  const slides = Array.from(document.querySelectorAll('.hero-slide'));
+  const slides = Array.from(document.querySelectorAll('.slideshow-slide'));
   if (!slides.length) return;
+
+  const prevBtn = document.querySelector('.slide-prev');
+  const nextBtn = document.querySelector('.slide-next');
+
   let idx = 0;
   const intervalMs = 4500;
-  setInterval(() => {
+  let timer = null;
+
+  function show(i){
     slides[idx].classList.remove('is-active');
-    idx = (idx + 1) % slides.length;
+    idx = (i + slides.length) % slides.length;
     slides[idx].classList.add('is-active');
-  }, intervalMs);
+  }
+
+  function next(){ show(idx + 1); }
+  function prev(){ show(idx - 1); }
+
+  function start(){
+    stop();
+    timer = setInterval(next, intervalMs);
+  }
+  function stop(){
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  nextBtn?.addEventListener('click', () => { next(); start(); });
+  prevBtn?.addEventListener('click', () => { prev(); start(); });
+
+  const viewport = document.querySelector('.slideshow-viewport');
+  viewport?.addEventListener('mouseenter', stop);
+  viewport?.addEventListener('mouseleave', start);
+
+  start();
 })();
