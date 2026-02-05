@@ -106,6 +106,7 @@ document.addEventListener('keydown', (e) => {
 
   const prevBtn = document.querySelector('.slide-prev');
   const nextBtn = document.querySelector('.slide-next');
+  const viewport = document.querySelector('.slideshow-viewport');
 
   let idx = 0;
   const intervalMs = 4500;
@@ -129,10 +130,42 @@ document.addEventListener('keydown', (e) => {
     timer = null;
   }
 
+  // Set viewport height based on the *tallest* image ratio so every photo fits (object-fit: contain).
+  function updateHeight(){
+    if (!viewport) return;
+    const vw = viewport.clientWidth || viewport.getBoundingClientRect().width;
+    if (!vw) return;
+
+    let maxRatio = 0.5625; // fallback ~16:9
+    for (const img of slides){
+      const w = img.naturalWidth || 0;
+      const h = img.naturalHeight || 0;
+      if (w > 0 && h > 0){
+        maxRatio = Math.max(maxRatio, h / w);
+      }
+    }
+    viewport.style.setProperty('--slideH', Math.round(vw * maxRatio) + 'px');
+  }
+
+  // Wait for images to load (including cached)
+  let pending = slides.length;
+  slides.forEach(img => {
+    if (img.complete) {
+      pending -= 1;
+      if (pending <= 0) updateHeight();
+    } else {
+      img.addEventListener('load', () => {
+        pending -= 1;
+        if (pending <= 0) updateHeight();
+      }, { once:true });
+    }
+  });
+
+  window.addEventListener('resize', updateHeight);
+
   nextBtn?.addEventListener('click', () => { next(); start(); });
   prevBtn?.addEventListener('click', () => { prev(); start(); });
 
-  const viewport = document.querySelector('.slideshow-viewport');
   viewport?.addEventListener('mouseenter', stop);
   viewport?.addEventListener('mouseleave', start);
 
