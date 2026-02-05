@@ -412,7 +412,7 @@ input:focus, select:focus, textarea:focus{
   height: var(--slideH, 460px);
   overflow: hidden;
   background: #07090c;
-  padding: 40px 0; /* 👈 reduces image dominance */
+  padding: 250px 0; /* 👈 reduces image dominance */
 }
 .slideshow-slides{ position:absolute; inset:0; }
 .slideshow-slide{
