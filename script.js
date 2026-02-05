@@ -144,7 +144,7 @@ document.addEventListener('keydown', (e) => {
         maxRatio = Math.max(maxRatio, h / w);
       }
     }
-    viewport.style.setProperty('--slideH', Math.round(vw * maxRatio) + 'px');
+    viewport.style.setProperty('--slideH', Math.round(vw * maxRatio * 0.75) + 'px');
   }
 
   // Wait for images to load (including cached)
