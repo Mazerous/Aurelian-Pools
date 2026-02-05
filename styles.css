@@ -404,7 +404,7 @@ input:focus, select:focus, textarea:focus{
   display: grid;
   grid-template-columns: 64px 1fr 64px;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   padding: 14px 0;
 }
 .slideshow-viewport{
