@@ -66,7 +66,7 @@ function openModal(kind, selection){
   if (options.includes(selection)){
     requestSelection.value = selection;
   } else {
-    requestSelection.value = (kind === 'specialty') ? 'New Pool Startup' : 'Basic';
+    requestSelection.value = (kind === 'specialty') ? 'New Pool Startup' : 'Premium';
   }
 
   const firstInput = modal.querySelector('input, select, textarea');
@@ -104,8 +104,6 @@ document.addEventListener('keydown', (e) => {
   const slides = Array.from(document.querySelectorAll('.slideshow-slide'));
   if (!slides.length) return;
 
-  const prevBtn = document.querySelector('.slide-prev');
-  const nextBtn = document.querySelector('.slide-next');
   const viewport = document.querySelector('.slideshow-viewport');
 
   let idx = 0;
@@ -163,8 +161,9 @@ document.addEventListener('keydown', (e) => {
 
   window.addEventListener('resize', updateHeight);
 
-  nextBtn?.addEventListener('click', () => { next(); start(); });
-  prevBtn?.addEventListener('click', () => { prev(); start(); });
+  // Sleek navigation: click/tap the photo to advance
+  viewport?.addEventListener('click', () => { next(); start(); });
+
 
   viewport?.addEventListener('mouseenter', stop);
   viewport?.addEventListener('mouseleave', start);
