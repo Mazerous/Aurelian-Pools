@@ -492,10 +492,21 @@ input:focus, select:focus, textarea:focus{
 .slideshow-caption p{
   width: min(100% - 2rem, 1100px);
   margin: 0 auto;
-  text-align:center;
-  font-weight: 600;
-  color: rgba(212,175,55,.92);
-  letter-spacing: .01em;
+  text-align: center;
+  font-family: "Great Vibes", "Playfair Display", cursive;
+  font-size: clamp(1.4rem, 2.3vw, 2.2rem);
+  font-weight: 400;
+  color: rgba(255,255,255,.94);
+  letter-spacing: .02em;
+  text-shadow: 0 0 12px rgba(212,175,55,.32);
+}
+.slideshow-caption p::after{
+  content:"";
+  display:block;
+  width:min(220px, 45%);
+  height:1px;
+  margin:.55rem auto 0;
+  background: linear-gradient(90deg, rgba(212,175,55,0), rgba(212,175,55,.85), rgba(212,175,55,0));
 }
 
 /* Price "Starting at" */
@@ -512,6 +523,9 @@ input:focus, select:focus, textarea:focus{
   margin: .75rem 0 .35rem;
   font-size: .92rem;
   color: rgba(233,238,246,.78);
+}
+.specialty-card .quote-hint{
+  margin-top: auto;
 }
 
 /* 3-column grid for modal details */
@@ -549,3 +563,16 @@ input:focus, select:focus, textarea:focus{
   color: rgba(212,175,55,.95);
 }
 .contact-item a:hover{ text-decoration: underline; }
+
+
+/* Contact social links */
+.contact-items{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+}
+@media (max-width: 640px){
+  .contact-items{ grid-template-columns: 1fr; }
+}
+.contact-item a{ color: rgba(212,175,55,.92); }
+.contact-item a:hover{ color: rgba(255,255,255,.92); }
