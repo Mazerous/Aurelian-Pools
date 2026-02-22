@@ -604,3 +604,6 @@ input:focus, select:focus, textarea:focus{
 .about-company .hero-cta{
   margin-top: 18px;
 }
+
+.slideshow-slide { position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; object-fit:contain !important; display:block !important; }
+.slideshow-viewport { position:relative !important; overflow:hidden !important; }
